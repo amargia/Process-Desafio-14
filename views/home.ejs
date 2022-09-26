@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./main.js"></script>
+    <title>Desafío 12</title>
+	</head>
+	<body>
+		<main>
+			<% if (user) { %>
+				<div>
+					<h1 class="text">Bienvenido <%= user %> ! </h1>
+					<a href="/logout" class="btn btn-primary">Logout</a>
+				</div>
+			<% } else { %>
+				<div>
+					<h1 class="text">Bienvenido visitante ! </h1>
+					<p>Si tienes cuenta, loguéate aquí </p><a href="/login" class="btn btn-primary">Login</a>
+				</div>
+			<% } %>
+			<div>				
+				<form class="form" action="/productos" method="POST">
+					<h1 class="text">Ingresar Producto</h1 class="text">                    
+					<div class="form-group">
+						<label for="name">Producto</label>
+						<input type="text" class="form-control" name="title" id="name" placeholder="Nombre de Producto" required>
+					</div>
+					<div class="form-group">
+						<label for="precio">Precio</label>
+						<input type="number" class="form-control" name="price" id="precio" placeholder="Precio del Producto" required>
+					</div>
+					<div class="form-group">
+						<label for="thumbnail">Thumbnail</label>
+						<input type="file" class="form-control" name="thumbnail" id="thumbnail" required>                        
+					</div>             
+					<div class="form-button">
+						<button type="submit" class="btn btn-primary">Enviar</button>            
+					</div> 
+				</form>
+			</div>
+
+			<div class="form">
+					<h1 class="text">Lista Productos</h1>
+					<table id="productos">				
+						<%- include('partials/list.ejs'); %>
+					</table>
+			</div>
+
+			<div id="messageContainer">
+				<%- include('partials/messageCenter.ejs'); %>
+			</div>
+
+			<div class="d-grid col-6 mx-auto">
+				<a class="btn" href="/productos">Productos</a>                                   
+			</div>
+		</main>                                   
+	</body>
+<style>
+form, .table, .form, table {
+    margin: 0 auto;
+    width: 50%;
+}
+body, .tbody, .form-control {
+    background-color: #b7bcff;
+}
+th, td, .text {
+    color: white;
+}
+.btn {
+    background-color: #000547;
+    color: #b7bcff;
+    border-color: #b7bcff;
+}
+.btn:hover {
+    background-color: #b7bcff;
+    color: #000547;
+    border-color: #000547;
+}
+.colorMail {
+	color: #086788;
+}
+.colorFecha {
+	color: #582B11;
+}
+.colorMensaje {
+	color: #386C0B;
+}
+</style>
+</html>

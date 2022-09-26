@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./logout.js"></script>
+    <title>Desafío Login Formulario</title>
+	</head>
+	<body>
+			<div class="form">				
+                <h1 class="text">Tu cuenta ha sido creada con éxito!</h1>
+                <p class="text">Vuelve a <button class="btn btn-primary"><a href="/login">Login</a></button> para iniciar sesión </p>
+			</div>                               
+	</body>
+<style>
+form, .table, .form, table {
+    margin: 0 auto;
+    width: 50%;
+}
+body, .tbody, .form-control {
+    background-color: #b7bcff;
+}
+th, td, .text {
+    color: white;
+}
+.btn {
+    background-color: #000547;
+    color: #b7bcff;
+    border-color: #b7bcff;
+}
+.btn:hover {
+    background-color: #b7bcff;
+    color: #000547;
+    border-color: #000547;
+}
+</style>
+</html>

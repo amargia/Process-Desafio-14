@@ -1,0 +1,27 @@
+<div class="form">  
+    <h1 class="text">Centro de Mensajes</h1>  
+    <form class="form-control" onsubmit="return addMessage(this)">
+      <input type="email" id="mail" placeholder="email" required>
+      <input type="text" id="mensaje" placeholder="Ingresa un mensaje..." required>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <div id="mensajes"></div>
+    </form>
+    <style>
+      #mensajes{
+        height: 350px;
+        width: auto;
+        overflow: auto;
+      }
+      #mensajes::-webkit-scrollbar{
+        -webkit-appearance: none;
+      }
+      #mensajes::-webkit-scrollbar:vertical{
+        width: 10px;
+      }
+      #mensajes::-webkit-scrollbar-thumb {
+      background-color: #b7bcff;
+      border-radius: 20px;
+      border: 2px solid #ffffff;
+      }
+    </style>
+</div>

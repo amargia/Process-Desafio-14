@@ -1,0 +1,26 @@
+<thead>    
+    <tr>
+        <th scope="col"class="col">Producto</th>
+        <th scope="col"class="col">Precio</th>
+        <th scope="col"class="col">Imagen</th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+        <% if (productos.length === 0) { %>
+                <tr>
+                    <td colspan="3">No hay datos</td>
+                </tr>
+            <% }else{        
+                for (let i = 0; i < productos.length; i++) 
+                { %>
+                    <tr>
+                        <td><%=productos[i].title%></td>
+                        <td><%=productos[i].price%></td>
+                        <td><img src="<%=productos[i].thumbnail%>" class="productImage"></td>
+                        
+                    </tr>
+                <% } 
+                
+            } 
+        %>
+</tbody>
