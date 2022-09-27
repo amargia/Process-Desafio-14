@@ -3,7 +3,11 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 dotenv.config();
+
 const MongoStore = require('connect-mongo');
+
+const minimist = require('minimist');
+const { fork } = require('child_process');
 
 const chat = require("./data/chat.js");
 
@@ -70,6 +74,12 @@ io.on('connection', async function(socket) {
   });
 });
 
-httpServer.listen(8080, function() {
-  console.log('Server up on port 8080');
+let port = 8080;
+let dataPort = minimist(['--port', process.argv.slice(2)]);
+if (typeof(dataPort.port) === "number") {
+  port = dataPort.port;
+}
+
+httpServer.listen(port, () => {
+  console.log(`Server up on port ${port}`);
 })
